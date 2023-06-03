@@ -9,9 +9,10 @@ require("dotenv").config();
 app.use(express.json());
 
 const cors = require('cors');
+// app.use(express.json());
 app.use(cors({
-    origin: 'https://olx-9qd2.onrender.com'
-}));
+    origin : '*'
+}))
 
 app.get("/", (req, res) =>
   res.send(
