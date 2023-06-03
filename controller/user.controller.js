@@ -51,8 +51,10 @@ exports.login=async (req,res)=>{
                    id:validUser._id
                   }, "masai" );
                 //   localStorage.setItem("olxToken", JSON.stringify(token))
+                //   window.alert("Login Succesfully")
                   return   res.status(201).send({"token":token})
             }else{
+                // window.alert("Wrong credential")
                 return   res.status(401).send({"msg":"Wrong credential"})
             }
         });

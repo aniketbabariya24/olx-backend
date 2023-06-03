@@ -19,7 +19,43 @@ exports.addProcuct=async (req,res)=>{
 
 exports.allProduct=async( req, res )=>{
     try{
-       const rest=await ProductModel.find();
+        let page= req.query.page;
+       const rest=await ProductModel.find().skip(4 * page).limit(4);
+       return res.status(200).send(rest)
+    }
+    catch(err){
+        return res.status(500).send({"msg":err.message})
+    }
+}
+
+exports.fliterData=async( req, res )=>{
+    try{
+
+        let page= req.query.page;
+        // let category= ;
+    
+
+       const rest=await ProductModel.find({ category:req.query.category }).skip(4 * page).limit(4);
+       return res.status(200).send(rest)
+    }
+    catch(err){
+        return res.status(500).send({"msg":err.message})
+    }
+}
+exports.sortHigh=async( req, res )=>{
+    try{
+        let page= req.query.page;
+       const rest=await ProductModel.find().sort({price: -1}).skip(4 * page).limit(4);
+       return res.status(200).send(rest)
+    }
+    catch(err){
+        return res.status(500).send({"msg":err.message})
+    }
+}
+exports.sortlow=async( req, res )=>{
+    try{
+        let page= req.query.page;
+       const rest=await ProductModel.find().sort({price: 1}).skip(4 * page).limit(4);
        return res.status(200).send(rest)
     }
     catch(err){
