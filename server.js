@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.get("/", (req, res) =>
   res.send(
-    `<h1 style="text-align:Center;color:blue">Welcome in Mock 7</h1>`
+    `<h1 style="text-align:Center;color:blue">Welcome in Mock 8</h1>`
   )
 );
 
@@ -18,8 +18,8 @@ const userRouter=require('./routes/route.user')
 const productRouter=require('./routes/route.product')
 
 
-app.use('/api',userRouter) 
-app.use('/api',productRouter )
+app.use('/users',userRouter) 
+app.use('/products',productRouter )
 
 
 const {dbconnetion}= require('./configs/db')
