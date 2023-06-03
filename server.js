@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-// const cors = require("cors");
+const cors = require("cors");
 
 require("dotenv").config();
 
@@ -8,12 +8,13 @@ require("dotenv").config();
 
 app.use(express.json());
 
-const cors = require('cors');
-// app.use(express.json());
-app.use(cors({
-    origin : '*'
-}))
-
+// const cors = require('cors');
+const corsOptions ={
+  origin:'*', 
+  credentials:true,           
+  optionSuccessStatus:200,
+}
+app.use(cors(corsOptions))
 app.get("/", (req, res) =>
   res.send(
     `<h1 style="text-align:Center;color:blue">Welcome in Mock 8</h1>`
