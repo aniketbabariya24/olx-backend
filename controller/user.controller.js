@@ -50,7 +50,7 @@ exports.login=async (req,res)=>{
                  const token=jwt.sign({
                    id:validUser._id
                   }, "masai" );
-                  localStorage.setItem("olxToken", JSON.stringify(token))
+                //   localStorage.setItem("olxToken", JSON.stringify(token))
                   return   res.status(201).send({"token":token})
             }else{
                 return   res.status(401).send({"msg":"Wrong credential"})
